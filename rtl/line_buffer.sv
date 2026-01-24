@@ -64,7 +64,7 @@ module line_buffer (
 
 
     // data out
-    assign data_out = {d0, d1, d2};
+    assign data_out = {d2, d1, d0};
     
 
 
