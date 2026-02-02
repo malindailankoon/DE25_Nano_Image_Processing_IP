@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1769945993" />
+    <testcase name="mult_test.&lt;locals&gt;.wrapped" classname="multiplier" file="/mnt/c/Users/immkb/Desktop/FPGA_stuff/GIT_REPOS/DE25_Nano_Image_Processing_IP/multiplier_test/sim/multiplier.py" lineno="75" time="0.04998660087585449" sim_time_ns="5220.0" ratio_time="104427.98487067095" />
+  </testsuite>
+</testsuites>
