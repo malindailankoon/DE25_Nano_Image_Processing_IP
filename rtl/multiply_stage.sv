@@ -4,7 +4,7 @@ module multiply_stage(
     input logic [71:0]   pixel_window,
     input logic          input_valid,
     output logic [143:0] multiplied_data,
-    output logic         output_valid,
+    output logic         output_valid
 );
 
     logic [8:0] mult_valid;
@@ -55,7 +55,7 @@ module multiply_stage(
         .clk(clk),
         .rst(rst),
         .pixel_data(pixel_window[39:32]),
-        .kernel_data(kernel[39:24]),
+        .kernel_data(kernel[39:32]),
         .input_valid(input_valid),
         .multiply_out(multiplied_data[79:64]),
         .output_valid(mult_valid[4])
