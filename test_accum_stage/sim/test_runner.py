@@ -16,7 +16,8 @@ def run_test():
     runner.build(
         sources=src,
         hdl_toplevel="accum_block",
-        always=True
+        always=True,
+        clean=True
     )
 
     runner.test(

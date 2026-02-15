@@ -44,26 +44,22 @@ VL_ATTR_COLD void Vtop___024root___eval_settle(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__stl(vlSelfRef.__VstlTriggered, "stl"s);
 #endif
-            VL_FATAL_MT("/mnt/c/Users/immkb/Desktop/FPGA_stuff/GIT_REPOS/DE25_Nano_Image_Processing_IP/test_mult_block/rtl/multiply_block.sv", 1, "", "DIDNOTCONVERGE: Settle region did not converge after 100 tries");
+            VL_FATAL_MT("/Users/malindailankoon/Desktop/GIT_REPOS/DE25_Nano_Image_Processing_IP/test_mult_block/rtl/multiply_block.sv", 1, "", "DIDNOTCONVERGE: Settle region did not converge after '--converge-limit' of 100 tries");
         }
         __VstlIterCount = ((IData)(1U) + __VstlIterCount);
-    } while (Vtop___024root___eval_phase__stl(vlSelf));
+        vlSelfRef.__VstlPhaseResult = Vtop___024root___eval_phase__stl(vlSelf);
+        vlSelfRef.__VstlFirstIteration = 0U;
+    } while (vlSelfRef.__VstlPhaseResult);
 }
 
-VL_ATTR_COLD void Vtop___024root___eval_triggers__stl(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_triggers__stl\n"); );
+VL_ATTR_COLD void Vtop___024root___eval_triggers_vec__stl(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_triggers_vec__stl\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.__VstlTriggered[0U] = ((0xfffffffffffffffeULL 
-                                      & vlSelfRef.__VstlTriggered
-                                      [0U]) | (IData)((IData)(vlSelfRef.__VstlFirstIteration)));
-    vlSelfRef.__VstlFirstIteration = 0U;
-#ifdef VL_DEBUG
-    if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {
-        Vtop___024root___dump_triggers__stl(vlSelfRef.__VstlTriggered, "stl"s);
-    }
-#endif
+                                      & vlSelfRef.__VstlTriggered[0U]) 
+                                     | (IData)((IData)(vlSelfRef.__VstlFirstIteration)));
 }
 
 VL_ATTR_COLD bool Vtop___024root___trigger_anySet__stl(const VlUnpacked<QData/*63:0*/, 1> &in);
@@ -115,7 +111,12 @@ VL_ATTR_COLD bool Vtop___024root___eval_phase__stl(Vtop___024root* vlSelf) {
     // Locals
     CData/*0:0*/ __VstlExecute;
     // Body
-    Vtop___024root___eval_triggers__stl(vlSelf);
+    Vtop___024root___eval_triggers_vec__stl(vlSelf);
+#ifdef VL_DEBUG
+    if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {
+        Vtop___024root___dump_triggers__stl(vlSelfRef.__VstlTriggered, "stl"s);
+    }
+#endif
     __VstlExecute = Vtop___024root___trigger_anySet__stl(vlSelfRef.__VstlTriggered);
     if (__VstlExecute) {
         Vtop___024root___eval_stl(vlSelf);

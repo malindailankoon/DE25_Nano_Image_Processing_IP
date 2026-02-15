@@ -324,8 +324,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ multiply_block__DOT__m8__DOT__ha_15__DOT__cout;
         CData/*0:0*/ multiply_block__DOT__u2s_inst__DOT__is_neg;
         CData/*0:0*/ __VstlFirstIteration;
+        CData/*0:0*/ __VstlPhaseResult;
         CData/*0:0*/ __VicoFirstIteration;
+        CData/*0:0*/ __VicoPhaseResult;
         CData/*0:0*/ __Vtrigprevexpr___TOP__multiply_block__DOT__m8__DOT__clk__0;
+        CData/*0:0*/ __VactPhaseResult;
+        CData/*0:0*/ __VnbaPhaseResult;
         VL_OUT16(multiply_out,15,0);
         SData/*15:0*/ multiply_block__DOT__multiply_out;
         SData/*15:0*/ multiply_block__DOT__mo;
@@ -340,12 +344,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         SData/*9:0*/ multiply_block__DOT__m8__DOT__s2_temp;
         SData/*9:0*/ multiply_block__DOT__m8__DOT__s3;
         SData/*9:0*/ multiply_block__DOT__m8__DOT__s3_temp;
+    };
+    struct {
         SData/*13:0*/ multiply_block__DOT__m8__DOT__t1;
         SData/*13:0*/ multiply_block__DOT__m8__DOT__t1_temp;
         SData/*10:0*/ multiply_block__DOT__m8__DOT__t2;
         SData/*10:0*/ multiply_block__DOT__m8__DOT__t2_temp;
-    };
-    struct {
         SData/*15:0*/ multiply_block__DOT__m8__DOT__u1;
         SData/*15:0*/ multiply_block__DOT__m8__DOT__u1_temp;
         SData/*9:0*/ multiply_block__DOT__m8__DOT__u2;

@@ -57,11 +57,11 @@ void Vtop::eval_step() {
     vlSymsp->__Vm_activity = true;
     vlSymsp->__Vm_deleter.deleteAll();
     if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) {
-        vlSymsp->__Vm_didInit = true;
         VL_DEBUG_IF(VL_DBG_MSGF("+ Initial\n"););
         Vtop___024root___eval_static(&(vlSymsp->TOP));
         Vtop___024root___eval_initial(&(vlSymsp->TOP));
         Vtop___024root___eval_settle(&(vlSymsp->TOP));
+        vlSymsp->__Vm_didInit = true;
     }
     VL_DEBUG_IF(VL_DBG_MSGF("+ Eval\n"););
     Vtop___024root___eval(&(vlSymsp->TOP));

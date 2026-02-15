@@ -12,7 +12,7 @@ PERL = perl
 # Python3 executable (from $PYTHON3, defaults to 'python3' if not set)
 PYTHON3 = python3
 # Path to Verilator kit (from $VERILATOR_ROOT)
-VERILATOR_ROOT = /usr/local/share/verilator
+VERILATOR_ROOT = /Users/malindailankoon/Programming/verilator-5.045
 # SystemC include directory with systemc.h (from $SYSTEMC_INCLUDE)
 SYSTEMC_INCLUDE ?=
 # SystemC library directory with libsystemc.a (from $SYSTEMC_LIBDIR)
@@ -40,7 +40,7 @@ VM_USER_CFLAGS = \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
-  -Wl,-rpath,/mnt/c/Users/immkb/Desktop/FPGA_stuff/GIT_REPOS/DE25_Nano_Image_Processing_IP/.venv/lib/python3.12/site-packages/cocotb/libs -L/mnt/c/Users/immkb/Desktop/FPGA_stuff/GIT_REPOS/DE25_Nano_Image_Processing_IP/.venv/lib/python3.12/site-packages/cocotb/libs -lcocotbvpi_verilator \
+  -Wl,-rpath,/Users/malindailankoon/Desktop/GIT_REPOS/DE25_Nano_Image_Processing_IP/.venv/lib/python3.13/site-packages/cocotb/libs -L/Users/malindailankoon/Desktop/GIT_REPOS/DE25_Nano_Image_Processing_IP/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
@@ -49,7 +49,7 @@ VM_USER_CLASSES = \
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
   . \
-  ../../../.venv/lib/python3.12/site-packages/cocotb/share/lib/verilator \
+  ../../../.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator \
 
 ### Default rules...
 # Include list of all generated classes
@@ -60,7 +60,7 @@ include $(VERILATOR_ROOT)/include/verilated.mk
 ### Executable rules... (from --exe)
 VPATH += $(VM_USER_DIR)
 
-verilator.o: /mnt/c/Users/immkb/Desktop/FPGA_stuff/GIT_REPOS/DE25_Nano_Image_Processing_IP/.venv/lib/python3.12/site-packages/cocotb/share/lib/verilator/verilator.cpp 
+verilator.o: /Users/malindailankoon/Desktop/GIT_REPOS/DE25_Nano_Image_Processing_IP/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp 
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST)  -c -o $@ $<
 
 ### Link rules... (from --exe)

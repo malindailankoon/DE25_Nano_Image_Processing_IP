@@ -12,34 +12,32 @@ module accum_block(
     logic [15:0] s1_a1_sum_temp, s1_a1_carry_temp, s1_a1_sum, s1_a1_carry;
     logic [15:0] s1_a2_sum_temp, s1_a2_carry_temp, s1_a2_sum, s1_a2_carry;
     logic [15:0] s1_a3_sum_temp, s1_a3_carry_temp, s1_a3_sum, s1_a3_carry;
-    
-    logic s1_valid;
+    logic        s1_valid;
 
 
     //################
     // stage 2 signals
     logic [15:0] s2_a1_sum_temp, s2_a1_carry_temp, s2_a1_sum, s2_a1_carry;
     logic [15:0] s2_a2_sum_temp, s2_a2_carry_temp, s2_a2_sum, s2_a2_carry;
-
-    logic s2_valid;
+    logic        s2_valid;
 
 
     //################
     // stage 3 signals
     logic [15:0] s3_a1_sum_temp, s3_a1_carry_temp, s3_a1_sum, s3_a1_carry;
     logic [15:0] carry_buff;
-    logic s3_valid;
+    logic        s3_valid;
 
 
     //################
     // stage 4 signals
     logic [15:0] s4_a1_sum_temp, s4_a1_carry_temp, s4_a1_sum, s4_a1_carry;
-    logic s4_valid;
+    logic        s4_valid;
 
     //################
     // stage 5 signals
     logic [15:0] s5_temp;
-    logic s5_valid;
+    logic        s5_valid;
 
     /* verilator lint_on UNUSEDSIGNAL */
 
@@ -48,19 +46,19 @@ module accum_block(
     // Control signal propegation
     always_ff @(posedge clk) begin
         if (rst) begin
-            s1_valid <= 0;
-            s2_valid <= 0;
-            s3_valid <= 0;
-            s4_valid <= 0;
-            s5_valid <= 0;
+            s1_valid  <= 0;
+            s2_valid  <= 0;
+            s3_valid  <= 0;
+            s4_valid  <= 0;
+            s5_valid  <= 0;
             out_valid <= 0;
         end
         else begin
-            s1_valid <= input_valid;
-            s2_valid <= s1_valid;
-            s3_valid <= s2_valid;
-            s4_valid <= s3_valid;
-            s5_valid <= s4_valid;
+            s1_valid  <= input_valid;
+            s2_valid  <= s1_valid;
+            s3_valid  <= s2_valid;
+            s4_valid  <= s3_valid;
+            s5_valid  <= s4_valid;
             out_valid <= s5_valid;
         end
     end
@@ -72,30 +70,30 @@ module accum_block(
     generate
         for (i=0; i<16; i=i+1) begin
             full_adder fa(
-                .a(data_in[i]),
-                .b(data_in[i + 16]),
-                .cin(data_in[i + 32]),
-                .s(s1_a1_sum_temp[i]),
+                .a   (data_in[i]),
+                .b   (data_in[i + 16]),
+                .cin (data_in[i + 32]),
+                .s   (s1_a1_sum_temp[i]),
                 .cout(s1_a1_carry_temp[i])
             );
         end
 
         for (i=0; i<16; i=i+1) begin
             full_adder fa(
-                .a(data_in[i + 48]),
-                .b(data_in[i + 64]),
-                .cin(data_in[i + 80]),
-                .s(s1_a2_sum_temp[i]),
+                .a   (data_in[i + 48]),
+                .b   (data_in[i + 64]),
+                .cin (data_in[i + 80]),
+                .s   (s1_a2_sum_temp[i]),
                 .cout(s1_a2_carry_temp[i])
             );
         end
 
         for (i=0; i<16; i=i+1) begin
             full_adder fa(
-                .a(data_in[i + 96]),
-                .b(data_in[i + 112]),
-                .cin(data_in[i + 128]),
-                .s(s1_a3_sum_temp[i]),
+                .a   (data_in[i + 96]),
+                .b   (data_in[i + 112]),
+                .cin (data_in[i + 128]),
+                .s   (s1_a3_sum_temp[i]),
                 .cout(s1_a3_carry_temp[i])
             );
         end
@@ -160,9 +158,9 @@ module accum_block(
     endgenerate
 
     always_ff @(posedge clk) begin
-        s3_a1_sum <= s3_a1_sum_temp;
+        s3_a1_sum   <= s3_a1_sum_temp;
         s3_a1_carry <= {s3_a1_carry_temp[14:0], 1'b0};
-        carry_buff <= s2_a2_carry;
+        carry_buff  <= s2_a2_carry;
     end
 
 

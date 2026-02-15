@@ -1,11 +1,12 @@
-verilated_vcd_c.o: /usr/local/share/verilator/include/verilated_vcd_c.cpp \
- /usr/local/share/verilator/include/verilatedos.h \
- /usr/local/share/verilator/include/verilated.h \
- /usr/local/share/verilator/include/verilated_config.h \
- /usr/local/share/verilator/include/verilated_types.h \
- /usr/local/share/verilator/include/verilated_funcs.h \
- /usr/local/share/verilator/include/verilated_vcd_c.h \
- /usr/local/share/verilator/include/verilated_trace.h \
- /usr/local/share/verilator/include/verilated_trace_imp.h \
- /usr/local/share/verilator/include/verilated_intrinsics.h \
- /usr/local/share/verilator/include/verilated_threads.h
+verilated_vcd_c.o: \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_vcd_c.cpp \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilatedos.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_config.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_types.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_funcs.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_vcd_c.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_trace.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_trace_imp.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_intrinsics.h \
+  /Users/malindailankoon/Programming/verilator-5.045/include/verilated_threads.h
