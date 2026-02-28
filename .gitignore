@@ -3,3 +3,5 @@ test_convolution/sim/sim_build
 test_image_prcess/sim/sim_build
 test_accum_stage/sim/sim_build
 test_image_prcess/sim/__pycache__
+simulations/sim_build
+simulations/__pycache__
