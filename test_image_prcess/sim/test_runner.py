@@ -2,11 +2,10 @@ import os
 from pathlib import Path
 from cocotb_tools.runner import get_runner
 
-
 def run_test():
     sim = os.getenv("SIM", "verilator")
     proj_dir = Path(__file__).parent.parent
-    rtl_dir = proj_dir/".."/"rtl"
+    rtl_dir = proj_dir / ".." / "rtl"
 
     src = [
         str(rtl_dir / "conv_block.sv"),
@@ -22,7 +21,6 @@ def run_test():
     ]
 
     runner = get_runner(sim)
-
     runner.build(
         sources=src,
         hdl_toplevel="conv_block",
@@ -40,4 +38,3 @@ def run_test():
 
 if __name__ == "__main__":
     run_test()
-

@@ -2,7 +2,7 @@ module conv_block(
     input logic clk, rst,
     input logic [71:0] data_in,
     input logic [71:0] kernel,
-    input logic [15:0] thresh_value,
+    input logic [20:0] thresh_value,
     input logic input_valid,
     output logic [7:0] data_out,
     output logic output_valid
@@ -11,7 +11,7 @@ module conv_block(
     logic [143:0] ms_to_as_data;
     logic ms_to_as_data_valid;
 
-    logic [15:0] as_to_ts_data;
+    logic [20:0] as_to_ts_data;
     logic as_to_ts_valid;
 
     multiply_stage ms(
