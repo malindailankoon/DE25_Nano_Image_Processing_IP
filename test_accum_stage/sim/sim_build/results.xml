@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1771176729" />
-    <testcase name="accum_test.&lt;locals&gt;.wrapped" classname="accum" file="/Users/malindailankoon/Desktop/GIT_REPOS/DE25_Nano_Image_Processing_IP/test_accum_stage/sim/accum.py" lineno="54" time="0.0006229877471923828" sim_time_ns="110.0" ratio_time="176568.4806735553" />
-  </testsuite>
-</testsuites>
